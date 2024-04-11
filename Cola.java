@@ -25,11 +25,12 @@ public class Cola {
     // metodos
     public boolean poner(Object unelem) {
         // crea un nuevo nodo delante de la antigua cabecera
-        Nodo nuevo = new Nodo(unelem, this.fin);
+        Nodo nuevo = new Nodo(unelem, null);
         if (this.frente != null) {
-            this.frente = this.fin = nuevo;
-        } else {
+            this.fin.setEnlace(nuevo);
             this.fin = nuevo;
+        } else {
+            this.frente = this.fin = nuevo;
         }
         // nunca hay error de cola llena, entonces devuelve true
         return true;
@@ -54,13 +55,13 @@ public class Cola {
     public Object obtenerFrente() {
         Object frenteRetorno = null;
         if (this.frente != this.fin) {
-            frenteRetorno = this.frente;
+            frenteRetorno = this.frente.getElem();
         }
         return frenteRetorno;
     }
 
     public Boolean esVacia() {
-        return Objects.equals(this.frente, this.fin);
+        return Objects.equals(this.frente, this.fin) && this.fin == null;
     }
 
     public void vaciar() {
@@ -70,14 +71,13 @@ public class Cola {
         }
     }
 
+    @Override
     public Cola clone() {
         Cola aux = new Cola();
         Nodo actual = this.frente;
-        if (this.frente != null) {
-            while (actual != null) {
-                aux.poner(frente);
-                actual = this.frente.getEnlace();
-            }
+        while (actual != null) {
+            aux.poner(actual.getElem());
+            actual = actual.getEnlace();
         }
         return aux;
     }
@@ -85,11 +85,12 @@ public class Cola {
     @Override
     public String toString() {
         String s = "";
-        if (this.frente == this.fin) {
-            s = "Pila vacia";
+        if (this.frente == null) {
+            s = "Cola vacia";
+
         } else {
             // se ubica para recorrer la cola
-            Nodo aux = this.fin;
+            Nodo aux = this.frente;
             s = "[";
             while (aux != null) {
                 // agrega texto del elem y avanza

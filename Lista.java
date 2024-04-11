@@ -9,12 +9,13 @@ package lineales.dinamicas;
  * @author Mati
  */
 public class Lista {
+
     private Nodo cabecera;
-    
+
     public Lista() {
         this.cabecera = null;
     }
-    
+
     // metodos
     public boolean insertar(Object unElem, int pos) {
         // inserta el elemento nuevo en la posicion pos
@@ -40,33 +41,53 @@ public class Lista {
         // nunca hay error de lista llena, entonces devuelve true
         return exito;
     }
-    
+
     public boolean eliminar(int pos) {
-        return true;
+        Nodo aux = null;
+        boolean exito = true;
+        if (pos > 1) {
+            if (pos == 1) {
+                if (aux.getEnlace() == null) {
+                    aux = this.cabecera.getEnlace();
+                } else {
+                    cabecera.setEnlace(aux);
+                    cabecera = aux;
+                }
+            } else {
+                aux.setEnlace(aux.getEnlace().getEnlace());
+            }
+        } else {
+            exito = false;
+        }
+        return exito;
     }
-    
+
     public Object recuperar(int pos) {
         return null;
     }
     
+    public int localizar(Object elElem) {
+        return 0;
+    }
+
     public int longitud() {
         return 0;
     }
-    
+
     public boolean esVacia() {
         return (this.cabecera == null);
     }
-    
+
     public void vaciar() {
         if (!esVacia()) {
             this.cabecera = null;
         }
     }
-    
+
     public Lista clone() {
         return null;
     }
-    
+
     public String toString() {
         return "";
     }
