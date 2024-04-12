@@ -63,15 +63,48 @@ public class Lista {
     }
 
     public Object recuperar(int pos) {
-        return null;
+        Object elemento = null;
+        Nodo aux = this.cabecera;
+        int contador = 0;
+        while (this.cabecera != null && contador != pos) {
+            if (contador == pos) {
+                elemento = this.cabecera.getElem();
+            } else {
+                aux = aux.getEnlace();
+                contador++;
+            }
+        }
+        return elemento;
     }
-    
+
     public int localizar(Object elElem) {
-        return 0;
+        Object elemento = null;
+        Nodo pos = this.cabecera;
+        int contador = -1, aux = 0;
+        boolean encontrado = false;
+        while (this.cabecera != null && encontrado) {
+            elemento = this.cabecera.getElem();
+            if (elemento != elElem) {
+                pos = pos.getEnlace();
+                aux++;
+            } else {
+                encontrado = true;
+            }
+        }
+        if (!encontrado) {
+            contador = aux;
+        }
+        return contador;
     }
 
     public int longitud() {
-        return 0;
+        Nodo aux = this.cabecera;
+        int contador = 0;
+        while (aux != null) {
+            contador++;
+            aux = aux.getEnlace();
+        }
+        return contador;
     }
 
     public boolean esVacia() {
@@ -84,11 +117,37 @@ public class Lista {
         }
     }
 
-    public Lista clone() {
-        return null;
+    @Override
+    public Lista clone() throws CloneNotSupportedException {
+        Lista aux = new Lista();
+        Nodo actual = this.cabecera;
+        int pos = 0;
+        while (actual != null) {
+            aux.insertar(actual.getElem(), pos);
+            actual = actual.getEnlace();
+            pos++;
+        }
+        return aux;
     }
 
     public String toString() {
-        return "";
+        String s = "";
+        if (this.cabecera == null) {
+            s = "Lista vacia";
+        } else {
+            // se ubica para recorrer la cola
+            Nodo aux = this.cabecera;
+            s = "[";
+            while (aux != null) {
+                // agrega texto del elem y avanza
+                s += aux.getElem().toString();
+                aux = aux.getEnlace();
+                if (aux != null) {
+                    s += ",";
+                }
+            }
+            s += "]";
+        }
+        return s; // return the string here
     }
 }
