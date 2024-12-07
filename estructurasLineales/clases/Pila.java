@@ -3,8 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lineales.dinamicas;
-
+package clases;
 
 /**
  *
@@ -62,7 +61,7 @@ public class Pila {
             aux.tope = new Nodo(original.getElem(), null);
             clonada = aux.tope;
             original = original.getEnlace();
-            while(original != null) {
+            while (original != null) {
                 Nodo clon = new Nodo(original.getElem(), null);
                 clonada.setEnlace(clon);
                 clonada = clonada.getEnlace();

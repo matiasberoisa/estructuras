@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lineales.dinamicas;
+package TDAs;
 
 /**
  *
@@ -13,7 +13,6 @@ public class Nodo {
 
     private Object elem;
     private Nodo enlace;
-
 
     public Nodo(Object el, Nodo en) {
         elem = el;
