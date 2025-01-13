@@ -30,11 +30,18 @@ public class NodoAVL {
     }
 
     public int getAltura() {
-        return 0;
+        return altura;
     }
 
     public void recalcularAltura() {
-
+        int alturaDerecho = -1, alturaIzquierdo = -1;
+        if (derecho != null) {
+            alturaDerecho = derecho.getAltura();
+        }
+        if (izquierdo != null) {
+            alturaIzquierdo = izquierdo.getAltura();
+        }
+        altura = Math.max(alturaIzquierdo, alturaDerecho) + 1;
     }
 
     @SuppressWarnings("rawtypes")

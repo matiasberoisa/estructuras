@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package TDAs;
+import clases.Nodo;
 
 /**
  *
@@ -116,13 +112,13 @@ public class Lista {
         Lista copia = new Lista();
         Nodo actual = this.cabecera;
         int pos = 1;
-//        while (actual != null) {
+        // while (actual != null) {
         aux = recorrerRecursivo(this.cabecera);
         copia.cabecera = aux;
-//        aux.insertar(actual.getElem(), pos);
-//        actual = actual.getEnlace();
-//        pos++;
-//        }
+        // aux.insertar(actual.getElem(), pos);
+        // actual = actual.getEnlace();
+        // pos++;
+        // }
         return copia;
     }
 
