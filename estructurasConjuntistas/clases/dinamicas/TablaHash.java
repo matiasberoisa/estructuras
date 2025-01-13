@@ -12,15 +12,14 @@ import clases.*;
  */
 public class TablaHash {
 
-    private final int tamaño = 4;
-    private final Nodo[] tabla;
-    @SuppressWarnings("unused")
-    private int cantidad;
+    private int tamaño;
+    private int cantidad = 0;
     private Nodo[] hash;
 
-    public TablaHash() {
-        this.tabla = new Nodo[tamaño];
-        this.cantidad = 0;
+    public TablaHash(int t) {
+        tamaño = t;
+        cantidad = 0;
+        hash = new Nodo[tamaño];
     }
 
     public boolean pertenece(Object elem) {
@@ -55,16 +54,37 @@ public class TablaHash {
     }
 
     public boolean eliminar(Object elem) {
+        int pos = elem.hashCode() % this.tamaño;
+        Nodo aux = this.hash[pos];
+        Nodo anterior = null;
+        boolean encontrado = false;
+        while (!encontrado && aux != null) {
+            encontrado = aux.getElem().equals(elem);
+            if (encontrado) {
+                cantidad--;
+                if (anterior != null) {
+                    anterior.setEnlace(aux.getEnlace());
+                } else {
+                    hash[pos] = aux.getEnlace();
+                }
+            } else {
+                anterior = aux;
+                aux = aux.getEnlace();
+            }
 
-        return true;
+        }
+        return encontrado;
     }
 
-    @SuppressWarnings("null")
+    public boolean esVacio() {
+        return cantidad == 0;
+    }
+
     public Lista listar() {
-        Lista lis = null;
+        Lista lis = new Lista();
         int pos = 0, contadorPos = 1;
-        Nodo aux = null;
-        if (this.tabla != null) {
+        Nodo aux = this.hash[pos];
+        if (!esVacio()) {
             while (pos < this.tamaño) {
                 aux = this.hash[pos];
                 while (aux != null) {
@@ -78,4 +98,5 @@ public class TablaHash {
         }
         return lis;
     }
+
 }
