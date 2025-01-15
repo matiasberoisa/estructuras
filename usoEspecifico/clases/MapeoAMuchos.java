@@ -5,9 +5,9 @@ import clases.Lista;
  * @author Mati
  */
 public class MapeoAMuchos {
-    private int tamaño;
+    // private int tamaño;
     // private NodoHashMapeoM[] tabla;
-    private int cantidad;
+    // private int cantidad;
 
     public boolean asociar() {
         return true;

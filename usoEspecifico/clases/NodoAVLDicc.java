@@ -8,9 +8,11 @@
  * @author Mati
  */
 public class NodoAVLDicc {
-    private Object clave;
-    private Object dato;
-    private int altura;
-    private NodoAVLDicc hijoIzquierdo;
-    private NodoAVLDicc hijoDerecho;
+    /*
+     * private Object clave;
+     * private Object dato;
+     * private int altura;
+     * private NodoAVLDicc hijoIzquierdo;
+     * private NodoAVLDicc hijoDerecho;
+     */
 }

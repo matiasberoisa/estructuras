@@ -15,6 +15,11 @@ class NodoVert {
         primerAdy = ady;
     }
 
+    public NodoVert(NodoVert sig, NodoAdy ady) {
+        sigVertice = sig;
+        primerAdy = ady;
+    }
+
     public Object getElem() {
         return this.elem;
     }

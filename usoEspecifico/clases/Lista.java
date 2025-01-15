@@ -110,8 +110,8 @@ public class Lista {
     public Lista clone() throws CloneNotSupportedException {
         Nodo aux;
         Lista copia = new Lista();
-        Nodo actual = this.cabecera;
-        int pos = 1;
+        // Nodo actual = this.cabecera;
+        // int pos = 1;
         // while (actual != null) {
         aux = recorrerRecursivo(this.cabecera);
         copia.cabecera = aux;

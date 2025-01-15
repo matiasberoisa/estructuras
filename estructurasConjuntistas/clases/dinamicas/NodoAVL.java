@@ -12,7 +12,6 @@ public class NodoAVL {
 
     @SuppressWarnings("rawtypes")
     private Comparable elem;
-    @SuppressWarnings("unused")
     private int altura;
     private NodoAVL izquierdo;
     private NodoAVL derecho;
