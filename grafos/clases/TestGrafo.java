@@ -1,7 +1,8 @@
 
 public class TestGrafo {
-    public static void main(String[] args) {
-        GrafoEtiquetado g1 = new GrafoEtiquetado();
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Grafo g1 = new Grafo();
+        Lista lis = new Lista();
         System.out.println("muestro un grafo vacio");
         System.out.println(g1.toString());
         System.out.println("inserto un vertice en el grafo");
@@ -19,7 +20,6 @@ public class TestGrafo {
         System.out.println(g1.toString());
         System.out.println("agrego arcos a los vertices");
         System.out.println(g1.insertarArco(2, 3, 100));
-
         System.out.println(g1.toString());
         System.out.println("elimino un arco");
         System.out.println(g1.eliminarArco(2, 3, 100));
@@ -34,6 +34,8 @@ public class TestGrafo {
         System.out.println(g1.existeVertice(5));
         System.out.println("un vertice que NO se encuentre en el grafo: 8");
         System.out.println(g1.existeVertice(8));
-        System.out.println(g1.listarEnProfundidad());
+        lis = g1.listarEnProfundidad();
+        System.out.println(lis.toString());
+
     }
 }

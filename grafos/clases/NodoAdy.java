@@ -18,9 +18,10 @@ class NodoAdy {
         this.etiqueta = et;
     }
 
-    public NodoAdy(NodoVert sig, NodoAdy ady) {
-        vertice = sig;
-        sigAdyacente = ady;
+    public NodoAdy(NodoVert unVertice, Object unaEtiqueta, NodoAdy unAdyacente) {
+        vertice = unVertice;
+        etiqueta = unaEtiqueta;
+        sigAdyacente = unAdyacente;
     }
 
     public NodoVert getVertice() {
