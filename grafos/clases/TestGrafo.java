@@ -11,11 +11,11 @@ public class TestGrafo {
         g1.eliminarVertice(1);
         System.out.println(g1.toString());
         System.out.println("agrego vertices");
-        g1.insertarVertice(2);
-        g1.insertarVertice(3);
-        g1.insertarVertice(4);
-        g1.insertarVertice(5);
         g1.insertarVertice(6);
+        g1.insertarVertice(5);
+        g1.insertarVertice(4);
+        g1.insertarVertice(3);
+        g1.insertarVertice(2);
         System.out.println(g1.toString());
         System.out.println("agrego arcos a los vertices");
         System.out.println(g1.insertarArco(2, 3, 100));
@@ -30,9 +30,10 @@ public class TestGrafo {
         g1.insertarArco(3, 5, 600);
         System.out.println(g1.toString());
         System.out.println("metodo existe un vertice");
-        System.out.println("un vertice que se encuentre en el grafo");
-        System.out.println(g1.existeVertice(2));
-        System.out.println("un vertice que NO se encuentre en el grafo");
+        System.out.println("un vertice que se encuentre en el grafo: 5");
+        System.out.println(g1.existeVertice(5));
+        System.out.println("un vertice que NO se encuentre en el grafo: 8");
         System.out.println(g1.existeVertice(8));
+        System.out.println(g1.listarEnProfundidad());
     }
 }

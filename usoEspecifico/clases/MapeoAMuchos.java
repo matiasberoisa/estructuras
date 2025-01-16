@@ -1,4 +1,3 @@
-import clases.Lista;
 
 /**
  *
