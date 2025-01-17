@@ -15,12 +15,6 @@ class NodoVert {
         primerAdy = ady;
     }
 
-    public NodoVert(Object unElem, NodoVert proxVert) {
-        elem = unElem;
-        sigVertice = proxVert;
-        primerAdy = null;
-    }
-
     public Object getElem() {
         return this.elem;
     }

@@ -15,7 +15,7 @@ public class Grafo {
         boolean res = false;
         NodoVert aux = this.ubicarVertice(nuevoVert);
         if (aux == null) {
-            inicio = new NodoVert(nuevoVert, this.inicio);
+            inicio = new NodoVert(nuevoVert, this.inicio, null);
             res = true;
         }
         return res;
@@ -130,7 +130,7 @@ public class Grafo {
     }
 
     private void guardarArco(NodoVert ini, NodoVert fin, Object eti) {
-        NodoAdy guardado = new NodoAdy(fin, eti, null); // creo el nodoAdy a guardar
+        NodoAdy guardado = new NodoAdy(fin, null, eti); // creo el nodoAdy a guardar
         NodoAdy recorrer = ini.getPrimerAdy(); // creo el nodo auxiliar para recorrer los adyacentes
         if (recorrer != null) {
             while (recorrer.getSigAdyacente() != null) { // recorro la "lista" de adyacentes y me paro en el ultimo

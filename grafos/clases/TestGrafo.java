@@ -1,41 +1,53 @@
 
 public class TestGrafo {
-    public static void main(String[] args) throws CloneNotSupportedException {
-        Grafo g1 = new Grafo();
-        Lista lis = new Lista();
-        System.out.println("muestro un grafo vacio");
-        System.out.println(g1.toString());
-        System.out.println("inserto un vertice en el grafo");
-        g1.insertarVertice(1);
-        System.out.println(g1.toString());
-        System.out.println("elimino el vertice");
-        g1.eliminarVertice(1);
-        System.out.println(g1.toString());
-        System.out.println("agrego vertices");
-        g1.insertarVertice(6);
-        g1.insertarVertice(5);
-        g1.insertarVertice(4);
-        g1.insertarVertice(3);
-        g1.insertarVertice(2);
-        System.out.println(g1.toString());
-        System.out.println("agrego arcos a los vertices");
-        System.out.println(g1.insertarArco(2, 3, 100));
-        System.out.println(g1.toString());
-        System.out.println("elimino un arco");
-        System.out.println(g1.eliminarArco(2, 3, 100));
-        g1.insertarArco(2, 4, 200);
-        g1.insertarArco(3, 6, 300);
-        g1.insertarArco(4, 5, 400);
-        g1.insertarArco(6, 2, 500);
-        g1.insertarArco(3, 5, 600);
-        System.out.println(g1.toString());
-        System.out.println("metodo existe un vertice");
-        System.out.println("un vertice que se encuentre en el grafo: 5");
-        System.out.println(g1.existeVertice(5));
-        System.out.println("un vertice que NO se encuentre en el grafo: 8");
-        System.out.println(g1.existeVertice(8));
-        lis = g1.listarEnProfundidad();
-        System.out.println(lis.toString());
+        public static void main(String[] args) {
+                GrafoEtiquetado grafito = new GrafoEtiquetado();
+                Lista lista = new Lista();
 
-    }
+                System.out.println("imprimimos un grafo vacio\t\n" + grafito.toString());
+
+                System.out.println("insertamos el vertice A esperamos rta true\t" + grafito.insertarVertice("A"));
+                System.out.println("insertamos el vertice B esperamos rta true\t" + grafito.insertarVertice("B"));
+                System.out.println("insertamos el vertice C esperamos rta true\t" + grafito.insertarVertice("C"));
+                System.out.println("insertamos el vertice D esperamos rta true\t" + grafito.insertarVertice("D"));
+                System.out.println("insertamos el vertice E esperamos rta true\t" + grafito.insertarVertice("E"));
+                System.out.println("insertamos el vertice F esperamos rta true\t" + grafito.insertarVertice("F"));
+                System.out.println("insertamos el vertice G esperamos rta true\t" + grafito.insertarVertice("G"));
+                System.out.println("insertamos el vertice H esperamos rta true\t" + grafito.insertarVertice("H"));
+                System.out.println("insertamos el vertice I esperamos rta true\t" + grafito.insertarVertice("I"));
+                System.out.println("mostramos un grafo con cuatro vertices no conectados entre si");
+                System.out.println(grafito.toString());
+
+                System.out.println("intentamos agregar un vertice repetido esperamos rta false\t"
+                                + grafito.insertarVertice("A"));
+                System.out.println(grafito.toString());
+
+                System.out.println("ya probamos todos los casos del metodo INSERTAR VERTICE");
+                System.out.println(
+                                "--------------------------------------------------------------------------------------------------------------------------------");
+
+                System.out.println("agregamos un arco con etiqueta '1' que va desde A hasta B esperamos rta true\t\t"
+                                + grafito.insertarArco("A", "B", 1));
+                System.out.println("agregamos un arco con etiqueta '2' que va desde B hasta C esperamos rta true\t\t"
+                                + grafito.insertarArco("B", "C", 2));
+                System.out.println("agregamos un arco con etiqueta '3' que va desde E hasta A esperamos rta true\t\t"
+                                + grafito.insertarArco("E", "A", 3));
+                System.out.println("agregamos un arco con etiqueta '7' que va desde H hasta C esperamos rta true\t\t"
+                                + grafito.insertarArco("H", "C", 7));
+                System.out.println("agregamos un arco con etiqueta '4' que va desde E hasta F esperamos rta true\t\t"
+                                + grafito.insertarArco("E", "F", 4));
+                System.out.println("agregamos un arco con etiqueta '5' que va desde E hasta G esperamos rta true\t\t"
+                                + grafito.insertarArco("E", "G", 5));
+                System.out.println("agregamos un arco con etiqueta '6' que va desde I hasta E esperamos rta true\t\t"
+                                + grafito.insertarArco("I", "E", 6));
+                System.out.println("agregamos un arco con etiqueta '8' que va desde I hasta D esperamos rta true\t\t"
+                                + grafito.insertarArco("I", "D", 8));
+
+                System.out.println("mostramos un grafo con 9 vertices y 8 arcos");
+                System.out.println(grafito.toString());
+
+                lista = grafito.profundidad();
+                System.out.println(lista.toString());
+                System.out.println(grafito.existeCamino("A", "I"));
+        }
 }

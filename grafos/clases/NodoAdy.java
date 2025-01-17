@@ -18,12 +18,6 @@ class NodoAdy {
         this.etiqueta = et;
     }
 
-    public NodoAdy(NodoVert unVertice, Object unaEtiqueta, NodoAdy unAdyacente) {
-        vertice = unVertice;
-        etiqueta = unaEtiqueta;
-        sigAdyacente = unAdyacente;
-    }
-
     public NodoVert getVertice() {
         return this.vertice;
     }
