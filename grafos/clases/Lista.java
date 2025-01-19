@@ -82,7 +82,7 @@ public class Lista {
         boolean encontrado = false;
         int aux = 1;
         Nodo nodoAux = cabecera;
-        while ((!encontrado) && (aux < this.longitud())) {
+        while ((!encontrado) && (aux <= this.longitud())) {
 
             if (nodoAux.getElem() == busca) {
                 pos = aux;

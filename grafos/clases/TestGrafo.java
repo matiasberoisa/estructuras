@@ -42,6 +42,8 @@ public class TestGrafo {
                                 + grafito.insertarArco("I", "E", 6));
                 System.out.println("agregamos un arco con etiqueta '8' que va desde I hasta D esperamos rta true\t\t"
                                 + grafito.insertarArco("I", "D", 8));
+                System.out.println("agregamos un arco con etiqueta '9' que va desde A hasta A esperamos rta true\t\t"
+                                + grafito.insertarArco("A", "A", 9));
 
                 System.out.println("mostramos un grafo con 9 vertices y 8 arcos");
                 System.out.println(grafito.toString());
