@@ -347,16 +347,13 @@ public class Grafo {
                 if (ady.getVertice().getElem().equals(destino.getElem())) {
                     // System.out.println("encontro el destino");
                     res = true;
-                    if (caminoCorto.longitud() == 0 || camino.longitud() < caminoCorto.longitud() - 1) { // este if
-                                                                                                         // puede
-                                                                                                         // juntarse con
-                                                                                                         // el de abajo
-                                                                                                         // con un OR
-                        try {
-                            caminoCorto = camino.clone();
-                        } catch (CloneNotSupportedException e) {
-                            e.printStackTrace();
-                        }
+                    if (caminoCorto.longitud() == 0 || camino.longitud() < caminoCorto.longitud() - 1) { // este if//
+                                                                                                         // puede//
+                                                                                                         // juntarse
+                                                                                                         // con// el de
+                                                                                                         // abajo// con
+                                                                                                         // un OR
+                        caminoCorto = camino.clone();
                         caminoCorto.insertar(destino.getElem(), camino.longitud() + 1);
                     }
                     // System.out.println(caminoCorto.toString());
@@ -411,11 +408,7 @@ public class Grafo {
                                                                                                   // etiquetaMenor.longitud()==0
                                                                                                   // &&
                         // menorPeso = actual[0]; chequear
-                        try {
-                            caminoMenor = camino.clone();
-                        } catch (CloneNotSupportedException e) {
-                            e.printStackTrace();
-                        }
+                        caminoMenor = camino.clone();
                         caminoMenor.insertar(destino.getElem(), camino.longitud() + 1);
                         actual[0] = menorPeso;
 
