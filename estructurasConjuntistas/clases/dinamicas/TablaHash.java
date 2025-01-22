@@ -4,8 +4,6 @@
  */
 package clases.dinamicas;
 
-import clases.*;
-
 /**
  *
  * @author Mati

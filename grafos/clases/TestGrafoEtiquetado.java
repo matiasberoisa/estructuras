@@ -12,6 +12,7 @@ public class TestGrafoEtiquetado {
         public static void main(String[] args) {
                 GrafoEtiquetado grafito = new GrafoEtiquetado();
                 Lista lista = new Lista();
+                Lista caminos = new Lista();
 
                 System.out.println("imprimimos un grafo vacio\t\n" + grafito.toString());
                 System.out.println("insertamos el vertice A esperamos rta true\t" +
@@ -287,6 +288,11 @@ public class TestGrafoEtiquetado {
                                 "--------------------------------------------------------------------------------------------------------------------------------");
 
                 System.out.println("camino de menor tiempo de A a I: " + grafito.caminoMenorTiempo("A", "I"));
+
+                System.out.println(
+                                "--------------------------------------------------------------------------------------------------------------------------------");
+                caminos = grafito.todosLosCaminos("A", "I");
+                System.out.println("todos los caminos de A a I: " + caminos.toString());
 
         }
 }
