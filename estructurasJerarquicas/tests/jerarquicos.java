@@ -5,6 +5,7 @@
 package tests;
 
 import clases.*;
+import clases.dinamicas.Lista;
 
 /**
  *

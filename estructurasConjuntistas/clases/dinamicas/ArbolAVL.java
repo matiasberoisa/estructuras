@@ -4,8 +4,6 @@
  */
 package clases.dinamicas;
 
-import clases.Lista;
-
 public class ArbolAVL {
 
     private NodoAVL raiz;
