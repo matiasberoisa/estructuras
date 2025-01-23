@@ -18,4 +18,36 @@ public class Partido {
         golesE1 = gol1;
         golesE2 = gol2;
     }
+
+    public String getEquipo1() {
+        return this.eq1;
+    }
+
+    public String getEquipo2() {
+        return this.eq2;
+    }
+
+    public String getInstancia() {
+        return this.instancia;
+    }
+
+    public String getCiudad() {
+        return this.ciudad;
+    }
+
+    public String getEstadio() {
+        return this.estadio;
+    }
+
+    public int golesEquipo1() {
+        return this.golesE1;
+    }
+
+    public int golesEquipo2() {
+        return this.golesE2;
+    }
+
+    public String toString() {
+        return eq1 + ";" + eq2 + ";" + instancia + ";" + ciudad + ";" + estadio + ";" + golesE1 + ";" + golesE2;
+    }
 }

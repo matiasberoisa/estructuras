@@ -1,0 +1,44 @@
+Nueva York;Los Angeles;450
+Nueva York;Filadelfia;25
+Nueva York;Dallas;150
+Washington;Nueva York;600
+San Antonio;Fort Worth;120
+San Antonio;San Francisco;136
+Austin;Fort Worth;165
+Austin;Phoenix;212
+Austin;Indianapolis;299
+Columbus;Los Angeles;240
+Phoenix;Columbus;300
+Washington;Los Angeles;305
+Washington;Houston;302
+Washington;San Francisco;250
+Filadelfia;Washington;277
+Phoenix;LAS VEGAS;80
+San Francisco;Indianapolis;100
+Los Angeles;Indianapolis;121
+LAS VEGAS;Los Angeles;135
+LAS VEGAS;Houston;159
+LAS VEGAS;Filadelfia;406
+Houston;Phoenix;500
+San Antonio;San Diego;482
+San Diego;Dallas;111
+San Jose;San Diego;222
+Dallas;San Jose;333
+Fort Worth;LAS VEGAS;444
+Columbus;Seattle;387
+Indianapolis;Columbus;420
+Charlotte;San Francisco;69
+Charlotte;Seattle;99
+San Francisco;Denver;109
+Seattle;Denver;440
+Seattle;Washington;428
+Denver;Washington;285
+Nueva York;LAS VEGAS;271
+Nueva York;Denver;292
+Washington;LAS VEGAS;104
+Washington;DALLAS;101
+San Francisco;LAS VEGAS;217
+Chicago;Las Vegas; 205
+Chicago;Charlotte;100
+Chicago;San Fransisco;302
+Chicago;washington;412

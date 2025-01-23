@@ -401,7 +401,7 @@ public class Grafo {
                 if (ady.getVertice().getElem().equals(destino.getElem())) {
                     // System.out.println("encontrado");
                     res = true;
-                    menorPeso = menorPeso + (Double) ady.getEtiqueta();
+                    menorPeso = menorPeso + (int) ady.getEtiqueta();
                     System.out.println(menorPeso);
                     if (caminoMenor.longitud() == 0 || actual[0] > menorPeso || actual[0] == 0) { // caminoMenor.longitud()
                                                                                                   // == 0
@@ -418,7 +418,7 @@ public class Grafo {
                     if (camino.localizar(ady.getVertice().getElem()) < 0) {
                         if (actual[0] < menorPeso || camino.longitud() == 1 || actual[0] == 0) {
                             caminoMenor = caminoMenorAux(ady.getVertice(), destino, camino, caminoMenor, actual,
-                                    menorPeso + (Double) ady.getEtiqueta());
+                                    menorPeso + (int) ady.getEtiqueta());
                             camino.eliminar(camino.longitud());
                         }
 

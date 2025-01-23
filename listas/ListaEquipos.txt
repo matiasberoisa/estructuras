@@ -1,0 +1,16 @@
+CHILE;Berizzo;a
+MEXICO;Lozano;B
+ESTADOS UNIDOS;Berhalter;c
+COLOMBIA;Lorenzo;D
+ECUADOR;Sánchez;B
+BRASIL;DINIZ;D
+ARGENTINA;SCALONI;a
+PARAGUAY;Alfaro;d
+JAMAICA;Hallgrímsson;B
+URUGUAY;BIELSA;C
+CANADA;Herdman;A
+VENEZUELA;Batista;B
+PERU;Reynoso;a
+PANAMA;Christiansen;c
+BOLIVIA;Costas;C
+COSTA RICA;Suárez;D

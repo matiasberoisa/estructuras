@@ -251,7 +251,7 @@ public class TestGrafoEtiquetado {
                 grafito.insertarVertice("H");
                 grafito.insertarVertice("I");
                 grafito.insertarArco("A", "B", 1);
-                grafito.insertarArco("B", "C", 1);
+                grafito.insertarArco("B", "C", 0);
                 grafito.insertarArco("E", "A", 3);
                 grafito.insertarArco("H", "C", 7);
                 grafito.insertarArco("E", "F", 4);
@@ -292,24 +292,70 @@ public class TestGrafoEtiquetado {
 
                 System.out.println(
                                 "--------------------------------------------------------------------------------------------------------------------------------");
+                System.out.println("METODO CAMINO MAS CORTO SEGUN ETIQUETA ");
+                grafito.vaciar();
+                grafito.insertarVertice("L");
+                grafito.insertarVertice("A");
+                grafito.insertarVertice("B");
+                grafito.insertarVertice("C");
+                grafito.insertarVertice("D");
+                grafito.insertarVertice("E");
+                grafito.insertarVertice("F");
+                grafito.insertarVertice("G");
+                grafito.insertarVertice("H");
+                grafito.insertarVertice("I");
 
-                System.out.println("camino de menor tiempo de A a I: " + grafito.caminoMenorTiempo("A", "I"));
+                grafito.insertarArco("A", "B", 1);
+                grafito.insertarArco("B", "C", 2);
+                grafito.insertarArco("E", "A", 3);
+                grafito.insertarArco("H", "C", 7);
+                grafito.insertarArco("E", "F", 4);
+                grafito.insertarArco("E", "G", 5);
+                grafito.insertarArco("I", "E", 6);
+                grafito.insertarArco("I", "D", 8);
+                grafito.insertarArco("E", "D", 9);
+                grafito.insertarArco("I", "C", 10);
+                grafito.insertarArco("B", "D", 11);
+                grafito.insertarArco("L", "F", 12);
 
+                System.out.println(grafito.toString());
+                System.out.println("camino mas corto con origen y destino inexistentes "
+                                + grafito.caminoMenorTiempo("k", "P"));
+                System.out.println(
+                                "camino mas corto con un vertice origen perteneciente al grafo y un destino inexistente "
+                                                + grafito.caminoMenorTiempo("A", "P"));
+                System.out.println(
+                                "camino mas corto con un vertice origen inexistente en el grafo y un destino  existente "
+                                                + grafito.caminoMenorTiempo("P", "A"));
+                System.out.println("camino mas corto entre un vertice con sigo mismo (en este caso A) "
+                                + grafito.caminoMenorTiempo("A", "A"));
+                System.out.println(" ");
+                System.out.println("camino mas corto entre dos vertices que solo cuentan con un camino  "
+                                + grafito.caminoMenorTiempo("L", "F"));
+                System.out.println(" ");
+                System.out.println("camino mas corto entre dos vertices con mas de un camino posible de A a I "
+                                + grafito.caminoMenorTiempo("A", "I"));
+                System.out.println("pruebo este caso con otros vertices");
+                System.out.println(" entre A y L " + grafito.caminoMenorTiempo("A", "L"));
+                System.out.println("entre F y I " + grafito.caminoMenorTiempo("F", "I"));
                 System.out.println(
                                 "--------------------------------------------------------------------------------------------------------------------------------");
                 caminos = grafito.todosLosCaminos("A", "I", null);
                 System.out.println("todos los caminos de A a I: " + caminos.toString());
-                System.out.println(
-                                "desea filtrar por alojamiento en ciudad destinos(escriba 1) o que pase por una ciudad(escriba 2)");
-                opcion = dato.nextInt();
-                if (opcion == 1) {
-                        caminos = grafito.todosLosCaminos("A", "I", true);
-                } else {
-                        System.out.println("ingrese ciudad que sea incluida en el camino");
-                        ciudad = dato.next();
-                        caminos = grafito.todosLosCaminos("A", "I", ciudad);
-                        System.out.println(caminos.toString());
-                }
+                /*
+                 * System.out.println(
+                 * "desea filtrar por alojamiento en ciudad destinos(escriba 1) o que pase por una ciudad(escriba 2)"
+                 * );
+                 * opcion = dato.nextInt();
+                 * if (opcion == 1) {
+                 * caminos = grafito.todosLosCaminos("A", "I", true);
+                 * } else {
+                 * System.out.println("ingrese ciudad que sea incluida en el camino");
+                 * ciudad = dato.next();
+                 * caminos = grafito.todosLosCaminos("A", "I", ciudad);
+                 * System.out.println(caminos.toString());
+                 * }
+                 */
 
         }
 }

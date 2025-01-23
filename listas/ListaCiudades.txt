@@ -1,0 +1,20 @@
+Nueva York;TRUE;TRUE
+Los Angeles;FALSE;TRUE
+Chicago;TRUE;TRUE
+Houston;FALSE;FALSE
+Phoenix;FALSE;FALSE
+Filadelfia;TRUE;FALSE
+San Antonio;TRUE;FALSE
+San Diego;FALSE;TRUE
+Dallas;FALSE;TRUE
+San Jose;FALSE;FALSE
+Austin;FALSE;TRUE
+LAS VEGAS;TRUE;TRUE
+Fort Worth;FALSE;FALSE
+Columbus;TRUE;FALSE
+Charlotte;FALSE;FALSE
+San Francisco;TRUE;TRUE
+Indianapolis;TRUE;FALSE
+Seattle;TRUE;FALSE
+Denver;TRUE;FALSE
+Washington;TRUE;TRUE
