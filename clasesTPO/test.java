@@ -1,12 +1,22 @@
 package clasesTPO;
 
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
+import java.io.BufferedReader;
 
 public class test {
-    public static void main(String[] args) {
+    @SuppressWarnings("resource")
+    public static void main(String[] args) throws IOException {
         HashMap<Integer, Partido> hash = new HashMap<>();
-        // FileReader lectorArchivo = new FileReader();
+
+        FileReader archivo = new FileReader(
+                "C:\\Users\\mbero\\Downloads\\TPs\\EstructuraDeDatos\\estructuras\\estructuras\\listas\\ListaEquipos.txt");
+        BufferedReader lector = new BufferedReader(archivo);
+        String cadena;
+        while ((cadena = lector.readLine()) != null) {
+            System.out.println(cadena);
+        }
         Partido partido1 = new Partido("Argentina", "Chile", "grupo", "Atlanta", "benz", 2, 0);
         Partido partido2 = new Partido("USA", "COL", "grupo", "boston", "AT&T", 1, 0);
         hash.put(1, partido1);

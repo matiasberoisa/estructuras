@@ -22,4 +22,20 @@ public class Ruta {
     public int getTiempo() {
         return this.tiempoEstimado;
     }
+
+    public void setOrigen(String nn) {
+        origen = nn;
+    }
+
+    public void setDestino(String des) {
+        destino = des;
+    }
+
+    public void setTiempo(int ti) {
+        tiempoEstimado = ti;
+    }
+
+    public String toString() {
+        return origen + ";" + destino + ";" + tiempoEstimado;
+    }
 }

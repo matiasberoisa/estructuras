@@ -22,4 +22,20 @@ public class Ciudad {
     public boolean sedeCopa() {
         return this.sede;
     }
+
+    public void setNombre(String nn) {
+        nombre = nn;
+    }
+
+    public void setAlojamiento(boolean al) {
+        alojamiento = al;
+    }
+
+    public void setSede(boolean se) {
+        sede = se;
+    }
+
+    public String toString() {
+        return nombre + ";" + alojamiento + ";" + sede;
+    }
 }

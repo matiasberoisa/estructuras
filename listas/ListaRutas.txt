@@ -38,7 +38,7 @@ Nueva York;Denver;292
 Washington;LAS VEGAS;104
 Washington;DALLAS;101
 San Francisco;LAS VEGAS;217
-Chicago;Las Vegas; 205
+Chicago;Las Vegas;205
 Chicago;Charlotte;100
 Chicago;San Fransisco;302
 Chicago;washington;412

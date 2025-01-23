@@ -47,6 +47,34 @@ public class Partido {
         return this.golesE2;
     }
 
+    public void setEquipo1(String e1) {
+        eq1 = e1;
+    }
+
+    public void setEquipo2(String e2) {
+        eq2 = e2;
+    }
+
+    public void setInstancia(String ins) {
+        instancia = ins;
+    }
+
+    public void setCiudad(String ci) {
+        ciudad = ci;
+    }
+
+    public void setEstadio(String es) {
+        estadio = es;
+    }
+
+    public void setGolesEquipo1(int gol) {
+        golesE1 = gol;
+    }
+
+    public void setGolesEquipo2(int gol) {
+        golesE2 = gol;
+    }
+
     public String toString() {
         return eq1 + ";" + eq2 + ";" + instancia + ";" + ciudad + ";" + estadio + ";" + golesE1 + ";" + golesE2;
     }

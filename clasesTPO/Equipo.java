@@ -22,4 +22,20 @@ public class Equipo {
     public String getGrupo() {
         return this.grupoInicial;
     }
+
+    public void setPais(String nn) {
+        nombrePais = nn;
+    }
+
+    public void setAlojamiento(String te) {
+        tecnico = te;
+    }
+
+    public void setGrupo(String gr) {
+        grupoInicial = gr;
+    }
+
+    public String toString() {
+        return nombrePais + ";" + tecnico + ";" + grupoInicial;
+    }
 }
