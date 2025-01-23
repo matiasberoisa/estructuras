@@ -4,15 +4,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
+import java.util.Scanner;
+
 /**
  *
  * @author agusf
  */
 public class TestGrafoEtiquetado {
+        @SuppressWarnings("resource")
         public static void main(String[] args) {
                 GrafoEtiquetado grafito = new GrafoEtiquetado();
                 Lista lista = new Lista();
                 Lista caminos = new Lista();
+                Scanner dato = new Scanner(System.in);
+                int opcion;
+                String ciudad;
 
                 System.out.println("imprimimos un grafo vacio\t\n" + grafito.toString());
                 System.out.println("insertamos el vertice A esperamos rta true\t" +
@@ -291,9 +297,19 @@ public class TestGrafoEtiquetado {
 
                 System.out.println(
                                 "--------------------------------------------------------------------------------------------------------------------------------");
-                caminos = grafito.todosLosCaminos("A", "I");
+                caminos = grafito.todosLosCaminos("A", "I", null);
                 System.out.println("todos los caminos de A a I: " + caminos.toString());
-                ;
+                System.out.println(
+                                "desea filtrar por alojamiento en ciudad destinos(escriba 1) o que pase por una ciudad(escriba 2)");
+                opcion = dato.nextInt();
+                if (opcion == 1) {
+                        caminos = grafito.todosLosCaminos("A", "I", true);
+                } else {
+                        System.out.println("ingrese ciudad que sea incluida en el camino");
+                        ciudad = dato.next();
+                        caminos = grafito.todosLosCaminos("A", "I", ciudad);
+                        System.out.println(caminos.toString());
+                }
 
         }
 }
