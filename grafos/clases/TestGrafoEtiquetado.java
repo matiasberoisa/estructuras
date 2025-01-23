@@ -293,6 +293,7 @@ public class TestGrafoEtiquetado {
                                 "--------------------------------------------------------------------------------------------------------------------------------");
                 caminos = grafito.todosLosCaminos("A", "I");
                 System.out.println("todos los caminos de A a I: " + caminos.toString());
+                ;
 
         }
 }

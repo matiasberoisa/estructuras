@@ -351,11 +351,7 @@ public class GrafoEtiquetado {
                                                                                                          // con// el de
                                                                                                          // abajo// con
                                                                                                          // un
-                        try {
-                            caminoCorto = camino.clone();
-                        } catch (CloneNotSupportedException e) {
-                            e.printStackTrace();
-                        }
+                        caminoCorto = camino.clone();
                         caminoCorto.insertar(destino.getElem(), camino.longitud() + 1);
                     }
                 } else {
@@ -406,11 +402,7 @@ public class GrafoEtiquetado {
                     // System.out.println("encontre un camino");
                     encontrado = true;
                     if (menorTiempo[0] == 0 || tiempo[0] < menorTiempo[0]) {
-                        try {
-                            caminoCorto = camino.clone();
-                        } catch (CloneNotSupportedException e) {
-                            e.printStackTrace();
-                        }
+                        caminoCorto = camino.clone();
                         menorTiempo[0] = tiempo[0];
                         tiempo[0] = 0.0;
                         caminoCorto.insertar(nodoDestino.getElem(), caminoCorto.longitud() + 1);
@@ -473,11 +465,7 @@ public class GrafoEtiquetado {
                     if (siguiente.getVertice().getElem().equals(nodoDestino.getElem())) {
                         encontrado = true;
                         if (caminoCorto.longitud() == 0 || camino.longitud() < caminoCorto.longitud() - 1) {
-                            try {
-                                caminoCorto = camino.clone();
-                            } catch (CloneNotSupportedException e) {
-                                e.printStackTrace();
-                            }
+                            caminoCorto = camino.clone();
                             caminoCorto.insertar(nodoDestino.getElem(), caminoCorto.longitud() + 1);
                         }
                     } else {
@@ -500,21 +488,9 @@ public class GrafoEtiquetado {
 
     public Lista todosLosCaminos(Object origen, Object destino) {
         Lista listaVisitados = new Lista(), caminos = new Lista(), listadoCaminos = new Lista();
-        NodoVert nodoOrigen = buscarVertice(this.inicio, origen), nodoDestino = buscarVertice(this.inicio, destino),
-                nodoUsado = null;
-        NodoAdy siguiente = nodoOrigen.getPrimerAdy();
+        NodoVert nodoOrigen = buscarVertice(this.inicio, origen), nodoDestino = buscarVertice(this.inicio, destino);
         if (!esVacio() && nodoOrigen != null && nodoDestino != null) {
-            // listadoCaminos = todosCaminos(nodoOrigen, nodoDestino, listaVisitados,
-            // caminos, listadoCaminos);
-            while (siguiente != null) {
-                nodoUsado = siguiente.getVertice();
-                caminos = caminoCortoAux(nodoOrigen, nodoDestino, nodoUsado, listaVisitados, caminos);
-                System.out.println(caminos.toString());
-                listadoCaminos.insertar(caminos.toString(), listadoCaminos.longitud() + 1);
-                siguiente = siguiente.getSigAdyacente();
-                listaVisitados.vaciar();
-                caminos.vaciar();
-            }
+            listadoCaminos = todosCaminos(nodoOrigen, nodoDestino, listaVisitados, caminos, listadoCaminos);
         }
         return listadoCaminos;
     }
@@ -522,10 +498,11 @@ public class GrafoEtiquetado {
     private Lista todosCaminos(NodoVert nodoOrigen, NodoVert nodoDestino, Lista listaVisitados, Lista camino,
             Lista listadoCaminos) {
         if (nodoOrigen != null) {
-            int posDestino = 0;
+            int posDestino = 0, posElemento = 0;
             camino.insertar(nodoOrigen.getElem(), camino.longitud() + 1);
             listaVisitados.insertar(nodoOrigen.getElem(), listaVisitados.longitud() + 1);
             if (nodoOrigen.getElem().equals(nodoDestino.getElem())) {
+                // System.out.println(camino);
                 listadoCaminos.insertar(camino.toString(), listadoCaminos.longitud() + 1);
             } else {
                 NodoAdy siguiente = nodoOrigen.getPrimerAdy();
@@ -537,7 +514,13 @@ public class GrafoEtiquetado {
                         }
                         listadoCaminos = todosCaminos(siguiente.getVertice(), nodoDestino, listaVisitados, camino,
                                 listadoCaminos);
-                        camino.eliminar(camino.longitud());
+                        Object elemNodo = camino.recuperar(camino.longitud());
+                        while (!elemNodo.equals(nodoOrigen.getElem())) {
+                            posElemento = listaVisitados.localizar(elemNodo);
+                            listaVisitados.eliminar(posElemento);
+                            camino.eliminar(camino.longitud());
+                            elemNodo = camino.recuperar(camino.longitud());
+                        }
                     }
                     siguiente = siguiente.getSigAdyacente();
                 }
