@@ -18,6 +18,11 @@ class NodoAdy {
         this.etiqueta = et;
     }
 
+    public NodoAdy(NodoVert vert, NodoAdy sig) {
+        this.vertice = vert;
+        this.sigAdyacente = sig;
+    }
+
     public NodoVert getVertice() {
         return this.vertice;
     }

@@ -4,21 +4,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-import java.util.Scanner;
-
 /**
  *
  * @author agusf
  */
 public class TestGrafoEtiquetado {
-        @SuppressWarnings("resource")
         public static void main(String[] args) {
                 GrafoEtiquetado grafito = new GrafoEtiquetado();
                 Lista lista = new Lista();
                 Lista caminos = new Lista();
-                Scanner dato = new Scanner(System.in);
-                int opcion;
-                String ciudad;
 
                 System.out.println("imprimimos un grafo vacio\t\n" + grafito.toString());
                 System.out.println("insertamos el vertice A esperamos rta true\t" +

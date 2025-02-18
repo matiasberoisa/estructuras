@@ -156,28 +156,21 @@ public class GrafoEtiquetado {
         boolean encontrado = false;
         NodoVert nodoBuscado = buscarVertice(this.inicio, eliminado), nodoSiguiente = this.inicio.getSigVertice(),
                 anterior = this.inicio;
-        NodoAdy siguiente, nuevoInicio;
+        NodoAdy siguiente;
         if (!esVacio() && nodoBuscado != null) {
             encontrado = true;
             siguiente = nodoBuscado.getPrimerAdy();
+            while (siguiente != null) {
+                eliminarEnlace(siguiente.getVertice(), nodoBuscado, siguiente.getEtiqueta());
+                siguiente = siguiente.getSigAdyacente();
+            }
             if (this.inicio.getElem().equals(eliminado)) {
                 if (this.inicio.getSigVertice() == null) {
                     vaciar();
                 } else {
-                    nuevoInicio = siguiente;
-                    while (siguiente != null) {
-                        eliminarEnlace(nodoBuscado, siguiente.getVertice(), siguiente.getEtiqueta());
-                        eliminarEnlace(siguiente.getVertice(), nodoBuscado, siguiente.getEtiqueta());
-                        siguiente = siguiente.getSigAdyacente();
-                    }
-                    this.inicio = nuevoInicio.getVertice();
+                    this.inicio = this.inicio.getSigVertice();
                 }
             } else {
-                while (siguiente != null) {
-                    eliminarEnlace(nodoBuscado, siguiente.getVertice(), siguiente.getEtiqueta());
-                    eliminarEnlace(siguiente.getVertice(), nodoBuscado, siguiente.getEtiqueta());
-                    siguiente = siguiente.getSigAdyacente();
-                }
                 if (nodoSiguiente.getElem().equals(eliminado)) {
                     nodoSiguiente = nodoSiguiente.getSigVertice();
                     anterior.setSigVertice(nodoSiguiente);
