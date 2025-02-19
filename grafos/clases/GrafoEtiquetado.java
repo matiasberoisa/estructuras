@@ -341,11 +341,7 @@ public class GrafoEtiquetado {
                 if (siguiente.getVertice().getElem().equals(destino.getElem())) {
                     encontrado = true;
                     if (caminoCorto.longitud() == 0 || camino.longitud() < caminoCorto.longitud() - 1) {
-                        try {
-                            caminoCorto = camino.clone();
-                        } catch (CloneNotSupportedException e) {
-                            e.printStackTrace();
-                        }
+                        caminoCorto = camino.clone();
                         caminoCorto.insertar(destino.getElem(), camino.longitud() + 1);
                     }
                 } else {
@@ -390,11 +386,7 @@ public class GrafoEtiquetado {
                 if (siguiente.getVertice().getElem().equals(nodoDestino.getElem())) {
                     tiempo += (int) siguiente.getEtiqueta();
                     if (menorTiempo[0] == 0 || tiempo < menorTiempo[0]) {
-                        try {
-                            caminoCorto = camino.clone();
-                        } catch (CloneNotSupportedException e) {
-                            e.printStackTrace();
-                        }
+                        caminoCorto = camino.clone();
                         menorTiempo[0] = tiempo;
                         caminoCorto.insertar(nodoDestino.getElem(), caminoCorto.longitud() + 1);
                     }
@@ -447,11 +439,7 @@ public class GrafoEtiquetado {
                     if (siguiente.getVertice().getElem().equals(nodoDestino.getElem())) {
                         encontrado = true;
                         if (caminoCorto.longitud() == 0 || camino.longitud() < caminoCorto.longitud() - 1) {
-                            try {
-                                caminoCorto = camino.clone();
-                            } catch (CloneNotSupportedException e) {
-                                e.printStackTrace();
-                            }
+                            caminoCorto = camino.clone();
                             caminoCorto.insertar(nodoDestino.getElem(), caminoCorto.longitud() + 1);
                         }
                     } else {
@@ -486,11 +474,7 @@ public class GrafoEtiquetado {
             camino.insertar(nodoOrigen.getElem(), camino.longitud() + 1);
             if (nodoOrigen.getElem().equals(nodoDestino.getElem())) {
                 Lista lista = new Lista();
-                try {
-                    lista = camino.clone();
-                } catch (CloneNotSupportedException e) {
-                    e.printStackTrace();
-                }
+                lista = camino.clone();
                 listadoCaminos.insertar(lista, listadoCaminos.longitud() + 1);
             } else {
                 NodoAdy siguiente = nodoOrigen.getPrimerAdy();

@@ -187,23 +187,39 @@ public class Digrafo {
     public Lista caminosDePesoEntre(Object origen, Object destino, int pesoMin, int pesoMax) {
         Lista camino = new Lista(), caminoMenorPeso = new Lista();
         NodoVert nodoOrigen = buscarVertice(inicio, origen), nodoDestino = buscarVertice(this.inicio, destino);
-        int[] peso = new int[1];
-        peso[0] = 0;
-        if (!esVacio() && nodoOrigen != null && nodoDestino != null) {
-            caminoPesoAux(nodoOrigen, nodoDestino, pesoMin, pesoMax, camino, caminoMenorPeso, peso, 0);
+        if (!esVacio() && nodoOrigen != null && nodoDestino != null && pesoMin < pesoMax) {
+            caminoMenorPeso = caminoPesoAux(nodoOrigen, nodoDestino, pesoMin, pesoMax, camino, caminoMenorPeso, 0);
         }
         return caminoMenorPeso;
     }
 
-    private void caminoPesoAux(NodoVert nodoOrigen, NodoVert nodoDestino, int pesoMin, int pesoMax, Lista camino,
-            Lista caminoMenorPeso, int[] peso, int pesoActual) {
+    private Lista caminoPesoAux(NodoVert nodoOrigen, NodoVert nodoDestino, int pesoMin, int pesoMax, Lista camino,
+            Lista caminoMenorPeso, int pesoActual) {
         if (nodoOrigen != null) {
             camino.insertar(nodoOrigen.getElem(), camino.longitud() + 1);
             NodoAdy siguiente = nodoOrigen.getPrimerAdy();
-            while (siguiente != null) {
-
+            boolean encontrado = false;
+            while (siguiente != null && !encontrado) {
+                if (siguiente.getVertice().getElem().equals(nodoDestino.getElem())) {
+                    pesoActual += (int) siguiente.getEtiqueta();
+                    if (pesoMin <= pesoActual && pesoMax >= pesoActual) {
+                        encontrado = true;
+                        caminoMenorPeso = camino.clone();
+                        caminoMenorPeso.insertar(nodoDestino.getElem(), caminoMenorPeso.longitud() + 1);
+                    }
+                } else {
+                    if (camino.localizar(siguiente.getVertice().getElem()) < 0
+                            && (pesoMax >= pesoActual)) {
+                        pesoActual += (int) siguiente.getEtiqueta();
+                        caminoMenorPeso = caminoPesoAux(siguiente.getVertice(), nodoDestino, pesoMin, pesoMax,
+                                camino,
+                                caminoMenorPeso, pesoActual);
+                        camino.eliminar(camino.longitud());
+                    }
+                }
                 siguiente = siguiente.getSigAdyacente();
             }
         }
+        return caminoMenorPeso;
     }
 }

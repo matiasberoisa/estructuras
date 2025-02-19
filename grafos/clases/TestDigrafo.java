@@ -14,16 +14,16 @@ public class TestDigrafo {
 
         grafito.insertarArco("A", "B", 1);
         grafito.insertarArco("B", "C", 2);
-        grafito.insertarArco("E", "A", 3);
-        grafito.insertarArco("H", "C", 7);
+        grafito.insertarArco("A", "E", 3);
+        grafito.insertarArco("C", "H", 7);
         grafito.insertarArco("E", "F", 4);
         grafito.insertarArco("E", "G", 5);
-        grafito.insertarArco("I", "E", 6);
-        grafito.insertarArco("I", "D", 8);
+        grafito.insertarArco("E", "I", 6);
+        grafito.insertarArco("D", "I", 8);
         grafito.insertarArco("E", "D", 9);
-        grafito.insertarArco("I", "C", 10);
+        grafito.insertarArco("C", "I", 0);
         grafito.insertarArco("B", "D", 11);
-        grafito.insertarArco("L", "F", 12);
+        grafito.insertarArco("F", "L", 12);
 
         System.out.println(grafito.toString());
 
