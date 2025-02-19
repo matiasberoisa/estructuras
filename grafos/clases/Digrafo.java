@@ -75,7 +75,8 @@ public class Digrafo {
                 cad = cad + "Vertice: " + recorrercolaVertices.getElem().toString() + " arcos: ";
                 recorrerAdyacentes = recorrercolaVertices.getPrimerAdy();
                 while (recorrerAdyacentes != null) {
-                    cad = cad + "[ enlace: " + recorrerAdyacentes.getVertice().getElem() + " ]";
+                    cad = cad + "[ etiqueta: " + recorrerAdyacentes.getEtiqueta() + " enlace: "
+                            + recorrerAdyacentes.getVertice().getElem() + " ]";
                     if (recorrerAdyacentes.getSigAdyacente() != null) {
                         cad += ", ";
                     }
@@ -132,18 +133,18 @@ public class Digrafo {
         return encontrado;
     }
 
-    public boolean insertarArco(Object origen, Object destino) {
+    public boolean insertarArco(Object origen, Object destino, Object etiqueta) {
         NodoVert nodoOrigen = buscarVertice(inicio, origen), nodoDestino = buscarVertice(this.inicio, destino);
         boolean encontrado = false;
         if (!esVacio() && nodoOrigen != null && nodoDestino != null) {
             encontrado = true;
-            crearEnlace(nodoOrigen, nodoDestino);
+            crearEnlace(nodoOrigen, nodoDestino, etiqueta);
         }
         return encontrado;
     }
 
-    private void crearEnlace(NodoVert nodoOrigen, NodoVert nodoDestino) {
-        NodoAdy siguiente = new NodoAdy(nodoDestino, null);
+    private void crearEnlace(NodoVert nodoOrigen, NodoVert nodoDestino, Object etiqueta) {
+        NodoAdy siguiente = new NodoAdy(nodoDestino, null, etiqueta);
         if (nodoOrigen.getPrimerAdy() == null) {
             nodoOrigen.setPrimerAdy(siguiente);
         } else {
@@ -181,5 +182,28 @@ public class Digrafo {
             }
         }
         return encontrado;
+    }
+
+    public Lista caminosDePesoEntre(Object origen, Object destino, int pesoMin, int pesoMax) {
+        Lista camino = new Lista(), caminoMenorPeso = new Lista();
+        NodoVert nodoOrigen = buscarVertice(inicio, origen), nodoDestino = buscarVertice(this.inicio, destino);
+        int[] peso = new int[1];
+        peso[0] = 0;
+        if (!esVacio() && nodoOrigen != null && nodoDestino != null) {
+            caminoPesoAux(nodoOrigen, nodoDestino, pesoMin, pesoMax, camino, caminoMenorPeso, peso, 0);
+        }
+        return caminoMenorPeso;
+    }
+
+    private void caminoPesoAux(NodoVert nodoOrigen, NodoVert nodoDestino, int pesoMin, int pesoMax, Lista camino,
+            Lista caminoMenorPeso, int[] peso, int pesoActual) {
+        if (nodoOrigen != null) {
+            camino.insertar(nodoOrigen.getElem(), camino.longitud() + 1);
+            NodoAdy siguiente = nodoOrigen.getPrimerAdy();
+            while (siguiente != null) {
+
+                siguiente = siguiente.getSigAdyacente();
+            }
+        }
     }
 }

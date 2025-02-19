@@ -334,7 +334,7 @@ public class TestGrafoEtiquetado {
                 System.out.println("entre F y I " + grafito.caminoMenorTiempo("F", "I"));
                 System.out.println(
                                 "--------------------------------------------------------------------------------------------------------------------------------");
-                caminos = grafito.todosLosCaminos("A", "I", null);
+                caminos = grafito.todosLosCaminos("A", "I");
                 System.out.println("todos los caminos de A a I: " + caminos.toString());
                 /*
                  * System.out.println(

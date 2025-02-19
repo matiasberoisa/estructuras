@@ -568,4 +568,38 @@ public class ArbolGen {
             contador.insertar(valor, pos);
         }
     }
+
+    public Lista caminoAHojaMasCercana() {
+        Lista camino = new Lista();
+        boolean[] encontrado = new boolean[1];
+        encontrado[0] = false;
+        if (raiz != null) {
+            hojaCercanaAux(this.raiz, camino, encontrado);
+
+        }
+        return camino;
+    }
+
+    private void hojaCercanaAux(NodoGen actual, Lista camino, boolean[] encontrado) {
+        NodoGen hijo;
+        if (actual != null) {
+            camino.insertar(actual.getElem(), camino.longitud() + 1);
+            if (actual.getHijoIzquierdo() == null) {
+                encontrado[0] = true;
+            } else {
+                hijo = actual.getHijoIzquierdo();
+                while (hijo != null && !encontrado[0]) {
+                    if (hijo.getHijoIzquierdo() == null) {
+                        encontrado[0] = true;
+                        camino.insertar(hijo.getElem(), camino.longitud() + 1);
+                    }
+                    hijo = hijo.getHermanoDerecho();
+                }
+                if (!encontrado[0]) {
+                    hojaCercanaAux(actual.getHijoIzquierdo(), camino, encontrado);
+                }
+            }
+        }
+    }
+
 }

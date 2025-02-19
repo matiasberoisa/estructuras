@@ -15,21 +15,17 @@ public class testArbolGen {
 
     public static void main(String[] args) throws CloneNotSupportedException {
         ArbolGen a1 = new ArbolGen();
-        @SuppressWarnings("unused")
-        ArbolGen a2 = new ArbolGen();
-        a1.insertar(20, 1);
-        a1.insertar(13, 20);
-        a1.insertar(54, 20);
-        a1.insertar(15, 13);
-        a1.insertar(12, 13);
-        a1.insertar(11, 54);
-        a1.insertar(27, 54);
-        a1.insertar(4, 54);
-        a1.insertar(100, 54);
-        a1.insertar(17, 27);
+        a1.insertar("A", "A");
+        a1.insertar("B", "A");
+        a1.insertar("C", "A");
+        a1.insertar("D", "A");
+        a1.insertar("E", "B");
+        a1.insertar("F", "B");
+        a1.insertar("G", "B");
+        a1.insertar("H", "D");
         System.out.println("original:");
         System.out.println(a1.toString());
-        System.out.println(a1.gradoMaximo());
-
+        System.out.println("camino hoja mas cercana:");
+        System.out.println(a1.caminoAHojaMasCercana());
     }
 }

@@ -6,8 +6,6 @@ import java.util.StringTokenizer;
 public class Carga {
     private FileReader archivoLectura;
     private BufferedReader lector;
-    private FileWriter archivoEscritura;
-    private BufferedWriter escritor;
     private StringTokenizer split;
 
     // quitar el parametro CANT de cada metodo y retornar una estructura
